@@ -1,0 +1,31 @@
+from random import randint
+r=randint(1,100)
+print('Welcome to GUESSARD!!!\nGuess a number between 1 and 100\nIf it matches with the magic number here in our box YOU WIN....\nLet us Start...')
+lis=[]
+g=int(input('enter no:'))
+lis.append(g)
+if(g!=r):
+    if(g<0 or g>100):
+        print('OUT OF BOUNDS')
+    elif(abs(r-g)<=10):
+        print('WARM')
+    else:
+        print('COLD')    
+    while(r!=g):
+        g=int(input('enter no:'))
+        if(g!=r):
+            lis.append(g)
+            if(g<0 or g>100):
+                print('OUT OF BOUNDS')
+            elif(abs(r-g)<=abs(lis[-2]-r)):
+                print('WARMER')
+            elif(abs(r-g)>abs(lis[-2]-r)):
+                print('COLDER')
+        else:
+            print(f'YOU WON AFTER {len(lis)} GUESSES.CONGRATS...')
+            break
+        
+else:
+    print('YOU WON AT THE FIRST ATTEMPT!!CONGRATS...')
+    
+    
